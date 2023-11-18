@@ -99,6 +99,7 @@ CREATE TABLE LOCAL (
 
 CREATE TABLE COMPLEMENTO(
 	id serial PRIMARY KEY,
+	fk_local_id integer,
 	complemento varchar(200)
 );
 
@@ -120,11 +121,6 @@ CREATE TABLE FOTO (
 	id serial PRIMARY KEY,
 	data date,
 	url_foto varchar(400)
-);
-
-CREATE TABLE LOCAL_COMPLEMENTO (
-	fk_local_id integer,
-	fk_complemento_id integer
 );
 
 CREATE TABLE USUARIO_USUARIO (
@@ -152,13 +148,9 @@ CREATE TABLE AVALIACAO_FOTO (
 	fk_foto_id integer
 );
 
-ALTER TABLE LOCAL_COMPLEMENTO ADD CONSTRAINT FK_LOCAL_COMPLEMENTO_1
+ALTER TABLE COMPLEMENTO ADD CONSTRAINT FK_COMPLEMENTO_1
 	FOREIGN KEY (fk_local_id)
 	REFERENCES LOCAL (id);
-
-ALTER TABLE LOCAL_COMPLEMENTO ADD CONSTRAINT FK_LOCAL_COMPLEMENTO_2
-	FOREIGN KEY (fk_complemento_id)
-	REFERENCES COMPLEMENTO (id);
  
 ALTER TABLE _Avaliacao ADD CONSTRAINT FK__Avaliacao_2
 	FOREIGN KEY (fk_usuario_id)
@@ -217,9 +209,10 @@ ALTER TABLE AVALIACAO_FOTO ADD CONSTRAINT FK_AVALIACAO_FOTO_2
 	FOREIGN KEY (fk_foto_id)
 	REFERENCES FOTO (id)
 	ON DELETE SET NULL;
+
       
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-  INSERT INTO USUARIO (nome, email, senha) 
+INSERT INTO USUARIO (nome, email, senha) 
     VALUES ('Kaio', ‘kaiomaromba123@gmail.com’, ‘batatinhafrita123’), 
             ('Adriano', ‘OAdriano.depresso@gmail.com’, ‘queroMorre!’),
             ('Daniel', ‘danielSuperonze@gmail.com', ‘EndouMelhorGoleiro!’),
@@ -231,11 +224,11 @@ INSERT INTO LOCAL (nome, descricao,  tipo_logradouro, nome_logradouro, cep, esta
             (‘Casa de show Adriano’, ‘LOCAL PARA VC TRAZER TODA A SUA FAMILIA AMIGOS E FAMILIARESES PARA UM DIA REVIGORANTE PARA UM JANTAR EM PLENA LUZ D SOL COM ÓTIMOS PETISCOS PETISCOS PARA SEU PET SOMOS AMIGAVEIS COM NOT PET FRIENDLY!!’, ‘Avenida’, ‘Emancipacao’, 13184654, ‘SP’, ‘Hortolândia’, ‘Jardim Amanda’, ‘5000’, ‘-22.883950’, ‘-47.224187’),
             (‘Buerger Buergi’, ’O hambúrguer mais saboroso, com carnes suculentas, vários flavours de drinks clássicos da mixologia internacional (caipirinha, c* de burro). Ambiente bonito e climatizado.’, ‘Beco’, ‘Diagonal’, 12345678, ‘AM’, ‘Manaus’, ‘Oliveira Acre’, ‘2345MEIA78’, ‘-3.048206’, ‘-59.995185’);
 
-INSERT INTO COMPLEMENTO(complemento)
-    VALUES (‘proximo ao posto ipiranga’),
-            (‘proximo a banca do seu ze’),
-            (‘tocar campainha e subir pro segundo andar’),
-            (‘NAO TEM’);
+INSERT INTO COMPLEMENTO(fk_local_id, complemento)
+    VALUES (2, ‘proximo ao posto ipiranga’),
+            (1, ‘proximo a banca do seu ze’),
+            (4, ‘tocar campainha e subir pro segundo andar’),
+            (3, ‘NAO TEM’);
 
 INSERT INTO ENTRETENIMENTO (tipo, descricao)
     VALUES (‘Boate’, ‘Boates, casas de festas’),
@@ -258,12 +251,6 @@ INSERT INTO FOTO (data, url_foto)
 (‘01/02/2023’, ‘https://respostas.sebrae.com.br/wp-content/uploads/2022/02/set-hamburger-beer-french-fries-standard-set-drinks-food-pub-beer-snacks-dark-background-fast-food-traditional-american-food-scaled.jpg’),
 (‘02/03/2022’, ‘https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png’),
 (‘23/10/2019’, ‘https://gkpb.com.br/wp-content/uploads/2023/02/novo-capitao-pikachu-e1677251557266.jpg’);
-
-INSERT INTO LOCAL_COMPLEMENTO (fk_local_id, fk_complemento_id)
-    VALUES (1, 2),
-            (2, 1),
-            (3, 4),
-            (4, 3);
 
 INSERT INTO USUARIO_USUARIO(fk_usuario_id_seguido, fk_usuario_id_seguidor)
     VALUES (1, 2),
@@ -295,6 +282,7 @@ INSERT INTO AVALIACAO_FOTO(fk__avaliacao_id, fk_foto_id)
             (2, 3),
             (3, 8),
             (4, 5);
+
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
