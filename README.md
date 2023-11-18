@@ -209,81 +209,28 @@ ALTER TABLE AVALIACAO_FOTO ADD CONSTRAINT FK_AVALIACAO_FOTO_2
 	FOREIGN KEY (fk_foto_id)
 	REFERENCES FOTO (id)
 	ON DELETE SET NULL;
-
       
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-INSERT INTO USUARIO (nome, email, senha) 
-    VALUES ('Kaio', ‘kaiomaromba123@gmail.com’, ‘batatinhafrita123’), 
-            ('Adriano', ‘OAdriano.depresso@gmail.com’, ‘queroMorre!’),
-            ('Daniel', ‘danielSuperonze@gmail.com', ‘EndouMelhorGoleiro!’),
-            ('Isadora', ‘isa@gmail.com', ‘narutoPikachu2’);
+INSERT INTO USUARIO (nome, email, senha) VALUES ('Kaio', 'kaiomaromba123@gmail.com', 'batatinhafrita123'), ('Adriano', 'OAdriano.depresso@gmail.com', 'queroMorre!'), ('Daniel', 'danielSuperonze@gmail.com', 'EndouMelhorGoleiro!'), ('Isadora', 'isa@gmail.com', 'narutoPikachu2');
 
-INSERT INTO LOCAL (nome, descricao,  tipo_logradouro, nome_logradouro, cep, estado, cidade, bairro, numero, latitude, longitude)
-    VALUES (‘Pizzaria bangalo’, ‘vendemos pizzas e temos espaço para recreação infantil’, ‘Av’, ’Alegria’, 52435552, ‘ES’, ‘Viana’, ‘Universal’, ‘666D’, ‘-20.383935’, ‘-40.466370’),
-            (‘Flamengo artigos para festa’, ‘equipamentos para pesca’, ‘Rua’, ‘Dante Michelini’, 22222222, ‘PA’, ‘Gurigica’, ‘castanheira’, ‘35F’, ‘-20.272874’, ‘-40.279709’),
-            (‘Casa de show Adriano’, ‘LOCAL PARA VC TRAZER TODA A SUA FAMILIA AMIGOS E FAMILIARESES PARA UM DIA REVIGORANTE PARA UM JANTAR EM PLENA LUZ D SOL COM ÓTIMOS PETISCOS PETISCOS PARA SEU PET SOMOS AMIGAVEIS COM NOT PET FRIENDLY!!’, ‘Avenida’, ‘Emancipacao’, 13184654, ‘SP’, ‘Hortolândia’, ‘Jardim Amanda’, ‘5000’, ‘-22.883950’, ‘-47.224187’),
-            (‘Buerger Buergi’, ’O hambúrguer mais saboroso, com carnes suculentas, vários flavours de drinks clássicos da mixologia internacional (caipirinha, c* de burro). Ambiente bonito e climatizado.’, ‘Beco’, ‘Diagonal’, 12345678, ‘AM’, ‘Manaus’, ‘Oliveira Acre’, ‘2345MEIA78’, ‘-3.048206’, ‘-59.995185’);
+INSERT INTO LOCAL (nome, descricao, tipo_logradouro, nome_logradouro, cep, estado, cidade, bairro, numero, latitude, longitude) VALUES ('Pizzaria bangalo', 'vendemos pizzas e temos espaço para recreação infantil', 'Av', 'Alegria', 52435552, 'ES', 'Viana', 'Universal', '666D', '-20.383935', '-40.466370'), ('Flamengo artigos para festa', 'equipamentos para pesca', 'Rua', 'Dante Michelini', 22222222, 'PA', 'Gurigica', 'castanheira', '35F', '-20.272874', '-40.279709'), ('Casa de show Adriano', 'LOCAL PARA VC TRAZER TODA A SUA FAMILIA AMIGOS E FAMILIARESES PARA UM DIA REVIGORANTE PARA UM JANTAR EM PLENA LUZ D SOL COM ÓTIMOS PETISCOS PETISCOS PARA SEU PET SOMOS AMIGAVEIS COM NOT PET FRIENDLY!!', 'Avenida', 'Emancipacao', 13184654, 'SP', 'Hortolândia', 'Jardim Amanda', '5000', '-22.883950', '-47.224187'), ('Buerger Buergi', 'O hambúrguer mais saboroso, com carnes suculentas, vários flavours de drinks clássicos da mixologia internacional (caipirinha, c* de burro). Ambiente bonito e climatizado.', 'Beco', 'Diagonal', 12345678, 'AM', 'Manaus', 'Oliveira Acre', '2345MEIA78', '-3.048206', '-59.995185');
 
-INSERT INTO COMPLEMENTO(fk_local_id, complemento)
-    VALUES (2, ‘proximo ao posto ipiranga’),
-            (1, ‘proximo a banca do seu ze’),
-            (4, ‘tocar campainha e subir pro segundo andar’),
-            (3, ‘NAO TEM’);
+INSERT INTO COMPLEMENTO(fk_local_id, complemento) VALUES (2, 'proximo ao posto ipiranga'), (1, 'proximo a banca do seu ze'), (4, 'tocar campainha e subir pro segundo andar'), (3, 'NAO TEM');
 
-INSERT INTO ENTRETENIMENTO (tipo, descricao)
-    VALUES (‘Boate’, ‘Boates, casas de festas’),
-            (‘Parque’, ‘Parques de diversões, parques ao ar livre, parques para cachorros’),
-            (‘Comida’, ‘Pizzaria, Hamburgueria, Fast foods, etc.’),
-            (‘Pesca’, ‘Pesque e pague, Pesque e solte’);
+INSERT INTO ENTRETENIMENTO (tipo, descricao) VALUES ('Boate', 'Boates, casas de festas'), ('Parque', 'Parques de diversões, parques ao ar livre, parques para cachorros'), ('Comida', 'Pizzaria, Hamburgueria, Fast foods, etc.'), ('Pesca', 'Pesque e pague, Pesque e solte');
 
-INSERT INTO _Avaliacao(fk_usuario_id, fk_local_id, comentario, avaliacao)
-    VALUES (1, 1, ‘pizza mt boa, recomendo’, 5),
-            (1, 4, ‘um lixo’, 1),
-            (2, 3, ‘Melhor casa de shows que tem’, 5),
-            (3, 2, ‘Não existe lugar melhor que uma boa loja do flamengo com equipamentos para pesca. GABIGOL MEU HEROI’, 3);
+INSERT INTO _Avaliacao(fk_usuario_id, fk_local_id, comentario, avaliacao) VALUES (1, 1, 'pizza mt boa, recomendo', 5), (1, 4, 'um lixo', 1), (2, 3, 'Melhor casa de shows que tem', 5), (3, 2, 'Não existe lugar melhor que uma boa loja do flamengo com equipamentos para pesca. GABIGOL MEU HEROI', 3);
 
-INSERT INTO FOTO (data, url_foto)
-    VALUES (‘24/03/2023’, ‘https://media-cdn.tripadvisor.com/media/photo-s/1a/f9/e2/8a/pizzaria-hermon.jpg’),
-(‘01/01/2023’, ‘https://www.pescapinheiros.com.br/produtos/original/pinheiros-93252.jpg’),
-            (‘30/05/2023’, ‘https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6gV3x9a4XDZywzMrqr8WCzhQBigDLUc4jDVywMdAib5gEoWHJ-Nys_YooNC9I0haJaUs&usqp=CAU’),
-            (‘16/09/2023’, ‘https://www.guiadasemana.com.br/contentFiles/image/opt_w840h0/villa-country-casa-de-shows.jpg’),
-            (‘22/06/2023’, ‘https://conteudo.imguol.com.br/c/esporte/fe/2023/07/26/gabigol-comemora-gol-do-flamengo-sobre-o-gremio-em-partida-da-copa-do-brasil-1690420734992_v2_1920x1280.jpg’),
-(‘01/02/2023’, ‘https://respostas.sebrae.com.br/wp-content/uploads/2022/02/set-hamburger-beer-french-fries-standard-set-drinks-food-pub-beer-snacks-dark-background-fast-food-traditional-american-food-scaled.jpg’),
-(‘02/03/2022’, ‘https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png’),
-(‘23/10/2019’, ‘https://gkpb.com.br/wp-content/uploads/2023/02/novo-capitao-pikachu-e1677251557266.jpg’);
+INSERT INTO FOTO (data, url_foto) VALUES ('2023/03/24', 'https://media-cdn.tripadvisor.com/media/photo-s/1a/f9/e2/8a/pizzaria-hermon.jpg'), ('2023/01/01', 'https://www.pescapinheiros.com.br/produtos/original/pinheiros-93252.jpg'), ('2023/05/30', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6gV3x9a4XDZywzMrqr8WCzhQBigDLUc4jDVywMdAib5gEoWHJ-Nys_YooNC9I0haJaUs&usqp=CAU'), ('2023/09/16', 'https://www.guiadasemana.com.br/contentFiles/image/opt_w840h0/villa-country-casa-de-shows.jpg'), ('2023/06/22', 'https://conteudo.imguol.com.br/c/esporte/fe/2023/07/26/gabigol-comemora-gol-do-flamengo-sobre-o-gremio-em-partida-da-copa-do-brasil-1690420734992_v2_1920x1280.jpg'), ('2023/01/02', 'https://respostas.sebrae.com.br/wp-content/uploads/2022/02/set-hamburger-beer-french-fries-standard-set-drinks-food-pub-beer-snacks-dark-background-fast-food-traditional-american-food-scaled.jpg'), ('2022/02/03', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png'), ('2019/10/23', 'https://gkpb.com.br/wp-content/uploads/2023/02/novo-capitao-pikachu-e1677251557266.jpg');
+INSERT INTO USUARIO_USUARIO(fk_usuario_id_seguido, fk_usuario_id_seguidor) VALUES (1, 2), (1, 3), (2, 1), (3, 4);
 
-INSERT INTO USUARIO_USUARIO(fk_usuario_id_seguido, fk_usuario_id_seguidor)
-    VALUES (1, 2),
-            (1, 3),
-            (2, 1),
-            (3, 4);
+INSERT INTO ENTRETENIMENTO_LOCAL(fk_entretenimento_id, fk_local_id) VALUES (1, 3), (3, 1), (3, 4), (4, 3);
 
-INSERT INTO ENTRETENIMENTO_LOCAL(fk_entretenimento_id, fk_local_id)
-    VALUES (1, 3),
-            (3, 1),
-            (3, 4),
-            (4, 3);
+INSERT INTO USUARIO_ENTRETENIMENTO(fk_usuario_id, fk_entretenimento_id) VALUES (1, 2), (2, 3), (2, 2), (3, 1), (4, 1);
 
-INSERT INTO USUARIO_ENTRETENIMENTO(fk_usuario_id, fk_entretenimento_id)
-    VALUES (1, 2),
-            (2, 3),
-            (2, 2),
-            (3, 1),
-            (4, 1);
+INSERT INTO FOTO_ESTABELECIMENTO(fk_local_id, fk_foto_id) VALUES (1, 1), (2, 2), (3, 4), (4, 6);
 
-INSERT INTO FOTO_ESTABELECIMENTO(fk_local_id, fk_foto_id)
-    VALUES (1, 1),
-            (2, 2),
-            (3, 4),
-            (4, 6);
-
-INSERT INTO AVALIACAO_FOTO(fk__avaliacao_id, fk_foto_id)
-    VALUES (1, 7),
-            (2, 3),
-            (3, 8),
-            (4, 5);
-
-
+INSERT INTO AVALIACAO_FOTO(fk__avaliacao_id, fk_foto_id) VALUES (1, 7), (2, 3), (3, 8), (4, 5);
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Usa template da disciplina disponibilizado no Colab.<br>
